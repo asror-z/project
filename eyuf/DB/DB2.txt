@@ -1,0 +1,159 @@
+user
+-	id: int
+-	fullname: string (Стипендиатнинг Ф.И.Ш)
+-	birthdate: date (Туғилган санаси)
+-	passport_serial: string (Паспорт серия)
+-	passport_number: int (Пасспорт номери)
+- 	passport: file (сканер нусхаси)
+-	gived_by: string (Қачон, ким томонидан берилганлиги)
+-	address:string (Доимий яшаш манзили)
+-	phone_number: string (Телефон номери (уяли))
+-	phone_home: string (Телефон номери (уй))
+-	orgnization_id: int (Вазирлик, идора, ташкилот, ОТМ ёки илмий-тадқиқот маркази)
+-	position: string (Лавозими)
+-	degree_id: int (Илмий даражаси ва унвони)
+-	experience: int (Иш стажи)
+-	speciality: jsonb (Мутахассислиги)
+- 	application_type_id: int (Хорижий таълим дастури)
+-	application_deadline: string (Хорижда таълим олиш муддати)
+-	foreign_organization: string (Таълим олаётган хорижий ташкилот, ОТМ ёки илмий-тадқиқот маркази номи)
+-	foreign_specialization: string (Хориждаги таълим йўналиши)
+-	edu_language: jsonb (Чет элда таълим тили);
+-	country_id: int (Хорижий давлат номи)
+-	foreign_language_cert: file (Хорижий тил бўйича халқаро сертификат(магистратура ва докторантура таълим дастурлари учун))
+-	email: string  (Email)
+-	password: string (Пароль(камида 6та символ))
+-	other_suggestion: string  (Жамғарма томонидан таклиф этиладиган қўшимча бўлимлар(агар мавжуд бўлса))
+
+organization
+-	id: int
+-	name: string (Вазирлик, идора, ташкилот, ОТМ ёки илмий-тадқиқот маркази)
+
+degree
+-	id: int
+-	name: string (Илмий даражаси ва унвони)
+-	position: int (Darajaga qarab sortirovka)
+
+speciality
+-	id: int
+-	name: string (Мутахассислиги)
+
+application_type
+-	id: int
+-	name: string (Хорижий таълим дастури)
+
+edu_language
+-	id: int
+-	name: string (Чет элда таълим тили)
+
+country
+-	id: int
+-	name: string (Хорижий давлат номи)
+
+compatriot
+-	id: int
+-	fullname: string  (Ф.И.О)
+-	birth_place: string  (Место рождение)
+-	nationality: string (Нацииональность)
+-	citizenship: string (Гражданство)
+-	living_address: string (Адрес проживания)
+-	address: string (Адресс)
+-	phone_number: string (Телефон)
+-	email: string (Э-почта)
+-	uz_phone_number: string (Телефон номер в Узбекистане)
+-	work_place: string (Место работы)
+-	position: string (Должность)
+-	experience: int (Опыт работы)
+-	old_working_place: string (старое рабочее место);
+-	old_working_positon: string (Старый должность);
+-	old_working_experience: int (Опыт работы ст.)
+-	degrees: int (Степени, один или несколько)
+-	speciality: string (специальность)
+-	science_degree: string (степень науки);
+-	partner_ideas: string (Идеи для партнерство в Узбекистане)
+-	other_suggestion: string (Другое Предложение)
+
+monitoring
+-	id: int
+-	fullname: string (Ф.И.О кандидата)
+-	work_place: string (Место работы)
+-	degree: jsonb (Степень и звание)
+-	passport: string (Серия паспорта и номер)
+-	gived_by: string (Дано);
+-	birthdate: date (Дата рождение)
+-   employer_id: int (Работадатель или организация)
+-	birth_place: string  (Место рождение)
+-	application_deadline: string (Период учебы)
+-	institution_name: string (название учреждения)
+-	country_id: int (Название страны)
+-	speciality: string (специальность)
+-	edu_language_id: int (язык обучения)
+-	foreign_language_cert: file (Сертификат по знанию инастранного язика)
+-	phone_number: string (Телефон)
+-	phone_home: string (Домашный телефон)
+-	email: string (Э-почта)
+-	status: enum (Статус обучении)
+-	position: string (Должность) //После оканчании учебы
+-   contract_number: string (Номер договора)
+-   phone_home: string (Домашный телефон)
+-   contract: file (Договор в электронном виде (pdf))
+-   cv: file (Объективка в виде ворд (doc)
+-   certificate: file (Сертификат про учебы)
+-   graduate_document: file (Документ о закончание магистратуры или доктарантуры)
+-   updated_at: datetime (Дата обновлении)
+
+employer
+-   id: int
+-   name: string (наименование)
+
+notification // Каждие три месяца кандидать должен обновить свои информации в мониторинге, что бы предупредить истема должен отправить уведомление
+-   id
+-   user_id: int
+-   monitoring_id: int (Все документы Мониторинга)
+-   message: string
+-   created_at: datetime
+-   isRead: enum
+
+accept // Каждые три месяца после добавлении все документы для мониторинга работадатель должен подтверждать информации
+-   id: int
+-   desc: string (Коммент для кандидата)
+-   accepted: bool (Подтверждено или нет)
+-   monitoring_id: int (Мониторинг)
+-   created_at: datetime
+-   accepted_at: datetime (Дата Подтверждение)
+
+participant
+-   id: int
+-   organization: string (Название организации)
+-   participate_fullname: string (Ф.И.О кандидата)
+
+applicant
+-   id: int
+-   candidate_id: int
+-   country_id : int
+-   organization_id: int
+-   edu_deadline: int
+-   contract: string
+
+scholarship_invoice  // Расходы
+-   id: int
+-   fullname: string (Ф.И.О кандидата)
+-   applicant_id: int (Программа обучении)
+-   invoice_step: int (Шаг оплаты)
+-   address: string (Адресс)
+-   phone_number: string
+-   employer_id: int
+-   invoice_type: enum
+-   invoice: int
+-   invoice_valute: string (Валюта)
+
+
+
+
+
+
+
+
+
+
+

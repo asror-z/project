@@ -1,0 +1,28 @@
+
+
+
+
+
+catalogId=344
+userName=Sardor Shodmonov
+userPhone=9983535353453
+
+
+-------------------------------------
+
+return
+
+user {
+    name: Sardor Shodmonov
+    phone: 9983535353453
+    password: 523456365sfgsdfg
+},
+order {
+    id: 2424
+},
+
+
+
+
+
+

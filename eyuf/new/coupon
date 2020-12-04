@@ -1,0 +1,10 @@
++
+    currency
+    percent
+    coupon_type(fixed, %)
+    useful count(necha marta ishlatish mumkin)
+    core_category_id
+    core_product_id
+    min_price_order(100 000 lik zakaz qilmasa kupon amal qilmaydi)
+    
+    

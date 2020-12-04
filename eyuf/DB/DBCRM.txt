@@ -1,0 +1,162 @@
+adman | Адман
+-   id:int |
+-   name:string | Имя | Имя |
+-   adman_id:int |
+-   last_id:int |
+-   status_n:tinyint |
+
+
+
+district | Район
+-   id:int |
+-   region:bigint |
+-   active:int |
+-   dateenter:datetime |
+-   scn:bigint |
+-   idold:int |
+-   idfirst:int |
+
+
+
+odobreniya_id | Одобрения
+-   id:int |
+-   main_id:int |
+
+
+journall | Журнал
+-   id:int |
+-   name:string | Имя | Имя журнала |
+-   num:int | Номер | Номер журнала
+-   date:datetime | Сидание |
+
+
+main | Главный
+-   id:int |
+-   site_id:int |
+-   sitename:string | Имя | Имя журнала |
+-   productname:string | Имя | Имя журнала |
+-   telephone:string | Имя | Имя журнала |
+-   user_id:int | Номер |
+-   ordercomment:text |
+-   usercomment:text |
+-   nameclient:string |
+-   status:int |
+-   sysdate:datetime |
+-   sysdate:datetime |
+-   sysdate:datetime |
+-   statusdate:text |
+-   region_id:int |
+-   street_id:int |
+-   district_id:int |
+-   address:string |
+-   h_tel:string |
+-   count_p:string |
+-   cost_p:string |
+-   adman_id:int |
+-   guid:string |
+-   addedprodukt:int |
+-   addedcount_p:string |
+-   addedcost_p:string |
+-   odobreniya_id:int |
+-   main_date:datetime |
+-   dublicat:int |
+-   odinc_id:int |
+-   age:tinyint |
+-   sex:tinyint |
+-   guid1c:string |
+-   odinc_id:string |
+-   1cidtime:datetime |
+-   dt_apruv:datetime |
+
+
+migration | Миграция
+-   version:string |
+-   apply_time:int |
+
+
+number | Число
+-   id:int |
+-   number:int |
+
+
+order | Ордер
+-   id:int |
+-   main_id:int |
+-   recpient_id:int |
+-   ordertext:tinyint |
+-   statusord:tinyint |
+-   sysdate:datetime |
+-   orddate:datetime |
+-   statdate:datetime |
+
+
+role | Роль
+-   id:int |
+-   name:string |
+
+
+sex | Секс
+-   id:int |
+-   name:string |
+
+
+site | Сайт
+-   id:int |
+-   name:string |
+-   linkxml:string |
+-   product_name:string |
+-   last_id:int |
+
+
+status_send | Cтатус отправки
+-   id:int |
+-   adman_id:ind |
+-   guid:string |
+-   status_id:int |
+-   comment:text |
+
+
+statusord | Ордер статуса
+-   id:int |
+-   name:string |
+
+
+statususer| Статус пользователя
+-   id:int |
+-   name:string |
+
+
+
+statuswork| Статус работы
+-   id:int |
+-   name:string |
+-   number:int |
+
+
+user | Пользователь
+-   id:int |
+-   username:string |
+-   auth_key:string |
+-   password_hash:string |
+-   password_reset_token:string |
+-   email:string |
+-   status:smallint |
+-   created_at:int |
+-   updated_at:int |
+-   role_id:tinyint |
+-   is_active:tinyint |
+
+
+work | Пользователь
+-   id:int |
+-   docid:int |
+-   docid:int |
+-   worktxt:text |
+-   sysdate:datetime |
+-   recdate:datetime |
+-   workdate:datetime |
+
+
+
+
+

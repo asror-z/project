@@ -1,0 +1,39 @@
+Individual_account_type
+//Diyorbek Olimov
+//sign up
+
+firstname : string
+lastname: string
+phone_number : int
+email : string;
+password : string;
+
+---------------------------------------------------------------------------
+//my loads section
+
+id : int
+updated_at : timestamp              // qancha vaqt oldin yangilangani
+created_at : timestamp              // yaratilgan vaqti
+starting_coordinates : varchar      // place_id   || longitude&&latitude ||address (optional)
+ending_coordinates   : varchar      // place_id     || longitude&&latitude ||address (optional)
+starting_city_name : string
+ending_city_name : string
+
+weight : varchar
+size   :  string                    // yuk o'lchami
+distance : varchar
+equipment_type 	: string      	    // Step Deck, Container, Tanker ....
+price	:int			    //faqat Premium user uchun
+price_per_mile	: int		    //faqat Premium user uchun
+
+-----------------------------------------------------------------------------
+
+//Additional info section:
+
+load_id : int                     	  //yuk idsi
+estimated_fuel_cost : int		  //yoqilg'i uchun taxminan qancha pul sarflanishi
+broker_name : string 			  //jo'natuvchi kompaniya nomi
+boroker_ratings	: int			  //jo'natuvchi kompaniya reytingi 0-5 ball oraliqda
+broker_loads : int				  //shu kompaniya jo'natgan yuklar soni
+broker_phone_number	: int		  //kompaniya telefon raqami
+broker_website : string			  //kompnaiya vebsayti

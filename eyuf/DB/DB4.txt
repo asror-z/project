@@ -1,0 +1,10 @@
+   /////////////////////////////////
+
+
+ Table name: //    administrator bo'limidagi ehtiyojlar oynasi
+ Columns:
+    id:
+    name:   // quyidagi name lar: talim, fan va ilmiy tadqiqotlar, sog'liqni saqlash, davlat boshqaruvi, iqtisodiyotning istiqbolli tarmoqlari
+
+
+ Table name: 

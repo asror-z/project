@@ -1,0 +1,43 @@
+// business_account for shippers = sign up page
+
+	id                       = int
+        //Company
+
+	Company Name	         = string
+        Business Type            = string (select tag)
+
+        //Personal Info
+
+	First Name              = string
+    Last Name               = string
+	Cell Phone                = int
+
+
+        //Account
+
+        E-mail                  = string
+        Password                = string
+
+        //Survey(optional)
+	    How many loads do you post daily
+        How do you want to post your loads
+
+// individual_account for shippers = sign up page
+
+        //Personal Info
+
+	First Name              = string
+        Last Name               = string
+	Cell Phone                = int
+
+
+        //Account
+
+        E-mail                  = string
+        Password                = string
+
+        //Survey(optional)
+	How many loads do you post daily
+        How do you want to post your loads
+
+

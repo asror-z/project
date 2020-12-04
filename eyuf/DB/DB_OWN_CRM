@@ -1,0 +1,5 @@
+user | Юзер
+-   id:int |
+-   name:string | Имя
+-   role_id:int | Идентификатор роля
+-   isactive:int |

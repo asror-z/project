@@ -1,0 +1,21 @@
+user:
+    -id:
+    -userName:
+    -image:
+    -organization:
+
+user_chats:
+    -chat_id:
+    -type:
+
+p_chat:
+    -id:
+
+
+g_chat:
+    -id:
+    
+message:
+    -massage_id:
+    -creater_uname:
+    -text:

@@ -1,0 +1,18 @@
+// business_account for drivers
+
+	id                       = int
+
+	origin	                 = string       // qaerdan boshlash
+    destination              = string       // qaergacha oborish
+	pickup_date              = timestamp    // yaratilgan vaqti
+
+	equipment                = varchar      // type of vehicles   						     
+	
+	max_weight 	             = int
+	size			         = int // yuk o'lchami
+	max_distance		     = int
+	price                    = int
+
+
+ 
+	

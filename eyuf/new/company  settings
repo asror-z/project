@@ -1,0 +1,62 @@
+orderga:
+    formalar:
+        obshiy:
+            1.show_0_elements (net v nalichi qilib qo'yilganlar elektron magazinda ko'rinsinmi yo'qmi magazinni o'zi hal qiladi)
+            2.min_price (orderga min price qo'yishi mumkin(zvachka sotib ololmaydi xoxlasa))
+            3.gift_multi (element sotilganda 10 ta sotilsa sovga ham 10 ta beriladi, yo bitta)
+
+        delivery_service = true
+
+        dostavka:
+            1.free_delivery (dostavkasi tekin)
+            2.pickup (kliyent tovari ozi ob ketishi dostavka qlinmastan)
+            3.fixed_price_delivery (dostavkasi fiksirovanniy narxda)
+            4.order_price_delivery (dostavka narxi order pricega related)
+            5.distance_price_delivery (dostavka narxi addressga related)
+            6.product_delivery (bitta magazinda har bitta product ni dostavka narxi har xil bolishi mumkun)
+            7.weight_price_delivery (productni vazniga related)
+             
+        payment:
+            1.cash (naxd pul)
+            2.card (terminalda)
+            3.online_pay (payme, click..)
+        seo:
+            1.MainPage
+                - Title of Page
+                - Key words
+                - Meta description
+                - H1
+            2.Categories
+                 - Title of Page
+                 - Key words
+                 - Meta description
+                 - H1
+            3.Tags
+                - Title of Page
+                - Key words
+                - Meta description
+                - H1
+            4.Products
+                - Title of Page
+                - Key words
+                - Meta description
+                - H1
+            6.News
+                - Title of Page
+                - Key words
+                - Meta description
+                - H1
+            8.Brand
+                 - Title of Page
+                 - Key words
+                 - Meta description
+                 - H1
+
+        social networks:
+            1.Youtube
+            2.Instagram
+            3.Telegram
+            4.Twitter
+            5.VKontakte
+            6.Odnoklassniki
+            7.Facebook

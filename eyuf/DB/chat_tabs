@@ -1,0 +1,36 @@
+user:
+    -id: int primary kay
+    -name: varchar(45)
+    -user_name: varchar(45) primary kay
+    -phone_number: int
+    -foto: varchar(45)
+
+public_massege:
+    -id: int primary kay AI
+    -user_id: int
+    -text: text
+    -send_date: Date
+    -user_name: varchar(45)
+    -chat_id: int
+
+chat:
+    -id: int primary kay AI
+    -user_id:
+    -chat_title:
+    -common_chat_id:
+    
+common_chat:
+  -id: int primary kay AI
+  -user_id:
+  -chat_id:
+
+
+
+private_massege:
+     -id: int primary kay AI
+     -sender_id: int
+     -getter_id: int
+     -text: text
+     -send_date: Date
+     -user_name: varchar(45)
+    

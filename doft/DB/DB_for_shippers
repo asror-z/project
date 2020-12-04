@@ -1,0 +1,33 @@
+// business_account for shippers
+
+	id                       = int
+
+	origin	                 = string       // qaerdan boshlash
+        destination          = string       // qaergacha oborish
+	pickup_date              = timestamp    // yaratilgan vaqti
+
+	equipment                = varchar      // type of vehicles
+
+	size			         = varchar // yuk o'lchami
+	max_distance		     = varchar
+	price                    = int
+
+    posted                   = int
+    unposted                 = int
+    expired
+    active jobs              = int
+    finished jobs            = int
+
+//find trucks section
+
+id : int
+age : timestamp              		// qancha vaqt oldin yangilangani
+origin : string       			// qayerdan boshlash
+destination : string       		// qayergacha olib borish
+weight : varchar 				// yuk og'irligi
+length: varchar 				// yuk uzunligi
+equipment  :  varchar      		// type of vehicle
+size : string					// full or part
+motor_carrier : string			// tashuvchi kompaniya
+phone_number : int
+

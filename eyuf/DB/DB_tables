@@ -1,0 +1,260 @@
+
+  ///////////////////////////////////////////////////////////
+
+CoreDocument: // Нужно добавить
+    -format: Array  // принемаемые форматы длчя данного документа(так Модервтор узнает каком формате
+              // заполнять форму(CoreDocument->связан->CoreProgram->связан->FormNeeds))
+
+Form: // Так как форма создается Фондом для Модератора для заполнения.
+     -name: varchar(45)      // Наименование
+     -comment: varchar(45)  // Коммент Фонда(Needer) к Модераторам (Оно будет видна при заполнении данных)
+     -period: DateTime   // периуд возможности изменения или заполнения формы модератором
+     -core_document_ids: Array // Список документа на заполнение
+     -core_user_id: int   // кому отпровляется форма. Массив запрошенных документов на данный запрос.
+
+FormNeeds: // Так как форма может так же как запросом Нужд Модераторов в 4-х направлениях.
+   -id: int
+   -form_id: int // связка
+   -core_program_ids: Array // Выборка направлений (всех или только нужных)
+
+
+FormBack: // Лист отправленных документов Модераторами на запрос Фонда/Фонда(Needer)
+    -form_id:
+    -comment: varchar(45)   // Те же данные как у Form /FormNeeds но содержит заполнинные данные
+    -documents: Array
+
+manual: //  справочник
+    -id: int
+    -title: varchar(45)
+    -desctiption: text
+    -img: varchar(45) // По данным ТЗ Фонд будет загружать нужные скриншоты и/или
+    -file: varchar(45) // о том как работать на системе и т.д
+
+ ///////////////////////////////////////////////////////////
+
+faq: /- часто задоваемые вопросы
+    -id: int
+    -question: text (вопрос)
+    -manual_id: int (справочник)
+
+
+after_training: /-по окончании квалификации
+     -id: int primary key auto inctement
+     -current_position:  (должность)
+     -convenant_number: (номер договора)
+     -home_number: (домашний номер)
+
+employer_comment:
+     -id: int primary key AI
+     -comment: text
+     -ratify: varchar(45) defoult "да" (подтвердить)(Иш берувчи томонидан маълумотларни тасдиқлаш  ха/йўқ
+     -job_placement: varchar(45)  (приказ трудоустройства)
+     -labor_contract: varchar(45)  (трудовой договор)
+
+scholarship_invoice: //-   расходы
+      -participant_id: int primary
+      -valuta: varchar(45)   (валюта)
+      -study_valuta: int   (учебные расходы(иностранная валюта))
+      -study_sum: int   (учебные расходы в суммах)
+      -visa: int (виза расходы )
+      -insurence: int (страховые расходы)
+      -per_diem: int  (расходы в день)
+      -housing: int  (расходы проживания)
+      -air_ticked: int  (расходы авиа билета)
+      -athers: int   (другие расходы)
+      -total: int  (итоговая сумма)
+
+
+       
+/***
+
+            'core_form_type_id' => static function (ZFormDb $column) {
+
+                $column->dbType = DbType_Integer;
+                $column->title = Az::l('Тип формы');
+                $column->widget = ZKSelect2Widget::class;
+
+                return $column;
+            },
+
+*/
+
+
+
+<?php
+
+/**
+ *
+ *
+ * Author:  Asror Zakirov
+ * https://www.linkedin.com/in/asror-zakirov
+ * https://github.com/asror-z
+ *
+ */
+
+namespace zetsoft\models\eyuf;
+
+use zetsoft\dbitem\data\ZConfigDB;
+use zetsoft\dbitem\data\ZFormDB;
+use zetsoft\system\actives\ZActiveRecord;
+use zetsoft\system\helpers\ZArrayHelper;
+use zetsoft\system\kernels\ZActiveTrait;
+use zetsoft\system\Az;
+
+
+use zetsoft\widgets\inputes\ZKSelect2Widget;
+use zetsoft\models\ALL\CoreForm;
+use zetsoft\models\ALL\CoreCompany;
+
+
+
+
+/**
+ * Class    CoreFormList
+ * @package zetsoft\models\App
+ *
+ * @property int $id
+
+ * @property int $core_form_id
+ * @property int $core_company_id
+ */
+class FormList extends ZActiveRecord
+{
+
+    #region Const
+
+    #endregion
+
+    #region Config
+
+    /**
+     * Function  config
+     * @return  \Closure
+     */
+    public function config()
+    {
+        return static function (ZConfigDB $config) {
+
+            $config->addBy = false;
+            $config->hasOne = [
+                    'CoreForm' => [
+                        'id' => 'core_form_id',
+                    ],
+                    'CoreCompany' => [
+                        'id' => 'core_company_id',
+                    ],
+                ];
+            $config->title = Az::l('Меню');
+
+            return $config;
+        };
+    }
+
+    #endregion
+
+    #region Column
+
+    /**
+     * Function column
+     * @return array
+     */
+    public function column()
+    {
+        return ZArrayHelper::merge(parent::column(), [
+
+            'core_form_id' => static function (ZFormDb $column) {
+
+                $column->dbType = DbType_Integer;
+                $column->title = Az::l('Form');
+                $column->widget = ZKSelect2Widget::class;
+
+                return $column;
+            },
+
+
+            'core_company_id' => static function (ZFormDb $column) {
+
+                $column->dbType = DbType_Integer;
+                $column->title = Az::l('Company');
+                $column->widget = ZKSelect2Widget::class;
+
+                return $column;
+            },
+
+
+        ]);
+    }
+
+    #endregion
+
+    #region Blocks
+
+    /**
+     * Function  blocks
+     * @return  array
+     */
+    public function block()
+    {
+        return [
+            Az::l('OneStep') => [
+                Az::l('OneBlock') => [
+                    [
+                        'json',
+                        'name',
+                        'state',
+                        'object',
+                        'perms',
+                        'core_role_ids',
+                        'user_ids',
+                    ],
+                ],
+            ],
+        ];
+    }
+
+    #endregion
+
+
+    #region One
+
+
+    /**
+     *
+     * Function  getCoreForm
+     * @return null|\yii\db\ActiveRecord|CoreForm
+     */
+    public function getCoreForm()
+    {
+        return $this->getOne(CoreForm::class, [
+          'id' => 'core_form_id',
+      ]);
+    }
+
+    /**
+     *
+     * Function  getCoreCompany
+     * @return null|\yii\db\ActiveRecord|CoreCompany
+     */
+    public function getCoreCompany()
+    {
+        return $this->getOne(CoreCompany::class, [
+          'id' => 'core_company_id',
+      ]);
+    }
+
+
+    #endregion
+
+    #region Multi
+
+
+
+    #endregion
+
+    #region Many
+
+
+
+    #endregion
+
+}
